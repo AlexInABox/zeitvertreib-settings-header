@@ -53,6 +53,8 @@ public static class Utils
             ];
 
         ServerSpecificSettingBase[] existing = ServerSpecificSettingsSync.DefinedSettings ?? [];
+        existing = Array.FindAll(existing,
+            s => s.SettingId != Plugin.Instance.Config!.Id); //remove old headers if any
 
         ServerSpecificSettingBase[] combined = new ServerSpecificSettingBase[existing.Length + extra.Length];
         extra.CopyTo(combined, 0);
