@@ -3,20 +3,25 @@ using LabApi.Features;
 using LabApi.Features.Console;
 using LabApi.Loader;
 using LabApi.Loader.Features.Plugins;
+using LabApi.Loader.Features.Plugins.Enums;
 
-namespace Template;
+namespace ZeitvertreibSettingsHeader;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public class Plugin : Plugin<Config>
 {
-    public override string Name { get; } = "Template";
+    public override string Name { get; } = "ZeitvertreibSettingsHeader";
 
     public override string Description { get; } =
-        "Template";
+        "ZeitvertreibSettingsHeader";
 
     public override string Author { get; } = "AlexInABox";
     public override Version Version { get; } = new(1, 0, 0);
     public override Version RequiredApiVersion { get; } = new(LabApiProperties.CompiledVersion);
+
+    public override LoadPriority Priority { get; } =
+        LoadPriority.Highest; //just to ensure that out ssss is on top at all times
+
     public Translation Translation { get; private set; }
 
     public static Plugin Instance { get; private set; }
