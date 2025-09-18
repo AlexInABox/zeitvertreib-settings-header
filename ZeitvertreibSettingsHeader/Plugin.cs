@@ -20,7 +20,7 @@ public class Plugin : Plugin<Config>
     public override Version RequiredApiVersion { get; } = new(LabApiProperties.CompiledVersion);
 
     public override LoadPriority Priority { get; } =
-        LoadPriority.Highest; //just to ensure that out ssss is on top at all times
+        LoadPriority.Lowest; //just to ensure that out ssss is on top at all times
 
     public Translation Translation { get; private set; }
 
